@@ -7,7 +7,7 @@
     </xs:simpleType>
     <xs:simpleType name="TipoNombre">
         <xs:restriction base="xs:string">
-            <xs:pattern value="([A-Z]{1}+[a-z]*)"/>
+            <xs:pattern value="([A-Z]{1}[a-z]*)"/>
         </xs:restriction>
     </xs:simpleType>
     <xs:simpleType name="TipoEmail">
@@ -16,9 +16,7 @@
         </xs:restriction>
     </xs:simpleType>
     <xs:simpleType name="TipoCalle">
-        <xs:restriction base="xs:string">
-            <xs:pattern value="[C/^]+[A-Z]{1}+[a-z]*"/>
-        </xs:restriction>
+        <xs:restriction base="xs:string"/>
     </xs:simpleType>
     <xs:simpleType name="TipoPiso">
         <xs:restriction base="xs:int">
@@ -37,7 +35,7 @@
     </xs:simpleType>
     <xs:simpleType name="TipoCiudad">
         <xs:restriction base="xs:string">
-            <xs:pattern value="[A-Z]{1}+[a-z]*"/>
+            <xs:pattern value="[A-Z]{1}[a-z]*"/>
         </xs:restriction>
     </xs:simpleType>
     <xs:simpleType name="TipoCate">

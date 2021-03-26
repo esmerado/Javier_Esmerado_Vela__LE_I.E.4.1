@@ -14,7 +14,7 @@
                             <PrecioUnidad>15€</PrecioUnidad>
                             <FehcaMaximaRecepcion>2020-02-20</FehcaMaximaRecepcion>
                         </NumInicialAnillas>
-                        <PrecioTotal>450</PrecioTotal>
+                        <PrecioTotal>450€</PrecioTotal>
                     </Criador>
                 </AsociacionCriadores>
             </SedeFisica>
@@ -31,7 +31,7 @@
                             <Nombre>Javier</Nombre>
                             <NIF>77822787X</NIF>
                             <FechaPedido>2020-02-14</FechaPedido>
-                            <PrecioTotal>450</PrecioTotal>
+                            <PrecioTotal>450€</PrecioTotal>
                             <FormaPago>Transferencia</FormaPago>
                             <Observaciones>Esto es una observación de prueba</Observaciones>
                         </DatosGenerales>

@@ -1,5 +1,5 @@
 <!ELEMENT universidad (alumnos*, profesores*, asignaturas*)>
-        <!ELEMENT alumnos (DNI, pasaporte, nombre, apellidos | apellido, fechanacimiento,(direccionpostal,telefonos, correo, asignaturasalumnos)?)>
+        <!ELEMENT alumnos (DNI, pasaporte, nombre, (apellidos | apellido), fechanacimiento,(direccionpostal,telefonos, correo, asignaturasalumnos)?)>
         <!ELEMENT DNI (#PCDATA)>
         <!ELEMENT pasaporte (pais)>
         <!ELEMENT pais (#PCDATA)>
@@ -14,7 +14,7 @@
         <!ATTLIST asignaturasalumnos materia CDATA #REQUIRED>
         <!ATTLIST asignaturasalumnos notas (NP | SS | AP | NT | SB | MH) #REQUIRED>
         <!ELEMENT notas (#PCDATA)>
-        <!ELEMENT profesores (DNI, pasaporte, nombre, apellidos | apellido, fechanacimiento, direccionpostal+, telefonos+, correo+, despacho, tutorias, asignaturasprofesor+)>
+        <!ELEMENT profesores (DNI, pasaporte, nombre, (apellidos | apellido), fechanacimiento, direccionpostal+, telefonos+, correo+, despacho, tutorias, asignaturasprofesor+)>
         <!ELEMENT despacho (#PCDATA)>
         <!ELEMENT tutorias (#PCDATA)>
         <!ELEMENT asignaturasprofesor (#PCDATA)>

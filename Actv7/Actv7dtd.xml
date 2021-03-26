@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE Libro SYSTEM "Actv7.dtd">
+<Libro xmlns="">
+    <Titulo>Prueba</Titulo>
+    <Contenido>
+        <Capitulo>
+            <Tema>Prueba</Tema>
+            <Seccion apartados="no"></Seccion>
+        </Capitulo>
+    </Contenido>
+    <Copyright>No</Copyright>
+</Libro>

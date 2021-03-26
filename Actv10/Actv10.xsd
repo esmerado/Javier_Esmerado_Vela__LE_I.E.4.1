@@ -5,12 +5,12 @@
     <!--Pedido-->
     <xs:simpleType name="TipoCodigoPedido">
         <xs:restriction base="xs:string">
-            <xs:pattern value="([A-Z]{1}+[0-9]{2}+[-]+[0-9]{1}+[0-9]{2}+[0-9]{3})"/>
+            <xs:pattern value="([A-Z]{1}[0-9]{2}-[0-9]{1}-[0-9]{2}-[0-9]{3})"/>
         </xs:restriction>
     </xs:simpleType>
     <xs:simpleType name="TipoNombre">
         <xs:restriction base="xs:string">
-            <xs:pattern value="([A-Z]{1}+[a-z]*)"/>
+            <xs:pattern value="([a-zA-Z ]{1,30})"/>
         </xs:restriction>
     </xs:simpleType>
     <xs:simpleType name="TipoTelf">
@@ -22,13 +22,11 @@
         <xs:restriction base="xs:string"/>
     </xs:simpleType>
     <xs:simpleType name="TipoDireOficina">
-        <xs:restriction base="xs:string">
-            <xs:pattern value="[C/^]+[A-Z]{1}+[a-z]*"/>
-        </xs:restriction>
+        <xs:restriction base="xs:string"/>
     </xs:simpleType>
     <xs:simpleType name="TipoNIF">
         <xs:restriction base="xs:string">
-            <xs:pattern value="[0-9]{8}+[A-Z]{1}"/>
+            <xs:pattern value="[0-9]{8}[A-Z]{1}"/>
         </xs:restriction>
     </xs:simpleType>
     <xs:simpleType name="TipoFechaPedido">
@@ -36,7 +34,7 @@
     </xs:simpleType>
     <xs:simpleType name="TipoPrecio">
         <xs:restriction base="xs:string">
-            <xs:pattern value="[0-9]*+[€]"/>
+            <xs:pattern value="[0-9]{1,999}€"/>
         </xs:restriction>
     </xs:simpleType>
     <xs:simpleType name="TipoFormaPago">
@@ -52,17 +50,17 @@
     <!--Datos criador-->
     <xs:simpleType name="TipoCodigoCriador">
         <xs:restriction base="xs:string">
-            <xs:pattern value="[A-Z]{1}+[0-9]{3}"/>
+            <xs:pattern value="[A-Z]{1}[0-9]{2}-[0-9]{1}-[0-9]{2}-[0-9]{3}"/>
         </xs:restriction>
     </xs:simpleType>
     <xs:simpleType name="TipoNombreCompleto">
         <xs:restriction base="xs:string">
-            <xs:pattern value="([A-Z]{1}+[a-z]*)+([A-Z]{1}+[a-z]*)+([A-Z]{1}+[a-z]*)"/>
+            <xs:pattern value="[a-zA-Z ]{1,30}[a-zA-Z ]{1,20}[a-zA-Z ]{1,20}"/>
         </xs:restriction>
     </xs:simpleType>
     <xs:simpleType name="TipoPrecioTotalAnillas">
         <xs:restriction base="xs:string">
-            <xs:pattern value="[0-9]*+[€]"/>
+            <xs:pattern value="[0-9]{1,999}€"/>
         </xs:restriction>
     </xs:simpleType>
     <!--Anillas-->
@@ -74,13 +72,13 @@
         </xs:restriction>
     </xs:simpleType>
     <xs:simpleType name="TipoCalibre">
-        <xs:restriction base="xs:integer">
-            <xs:pattern value="[0-9]*+[.]+[0-9]*"
+        <xs:restriction base="xs:string">
+            <xs:pattern value="[0-9]{1}[.][0-9]{1}"/>
         </xs:restriction>
     </xs:simpleType>
     <xs:simpleType name="TipoPrecioUnidad">
         <xs:restriction base="xs:string">
-            <xs:pattern value="[0-9]*+[€]"/>
+            <xs:pattern value="[0-9]{1,999}€"/>
         </xs:restriction>
     </xs:simpleType>
     <xs:simpleType name="TipoFechaMaxima">

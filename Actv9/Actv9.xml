@@ -15,7 +15,7 @@
         </ZonaGestion>
         <ZonaExposicion>
             <Articulo>
-                <Codigo>A123467</Codigo>
+                <Codigo>A1234567</Codigo>
                 <NumUnidades>12</NumUnidades>
                 <PrecioUnidad>20€</PrecioUnidad>
                 <Observaciones>Esto es una observación de prueba</Observaciones>

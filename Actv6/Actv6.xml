@@ -6,10 +6,10 @@
         <Apellido2>Vela</Apellido2>
         <E-Mail>esmerado@gmail.com</E-Mail>
         <Dirección>
-            <Calle>Don Alonso Quijano</Calle>
+            <Calle>C/Don Alonso Quijano</Calle>
             <CodigoPostal>4193</CodigoPostal>
             <Ciudad>Sevilla</Ciudad>
-            <Pais>España</Pais>
+            <Pais>Espana</Pais>
         </Dirección>
     </Ficha>
 </Fichas>
