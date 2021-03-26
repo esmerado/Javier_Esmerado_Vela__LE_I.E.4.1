@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+<!--Elementos simples-->
+    <xs:simpleType name="TipoFicha">
+        <xs:restriction base="xs:string"/>
+    </xs:simpleType>
+    <xs:simpleType name="TipoNombre">
+        <xs:restriction base="xs:string">
+            <xs:pattern value="([A-Z]{1}+[a-z]*)"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="TipoEmail">
+        <xs:restriction base="xs:string">
+            <xs:pattern value="[^@]+@[^\.]+\..+"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="TipoCalle">
+        <xs:restriction base="xs:string">
+            <xs:pattern value="[C/^]+[A-Z]{1}+[a-z]*"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="TipoPiso">
+        <xs:restriction base="xs:int">
+            <xs:pattern value="[0-9]{2}"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="TipoLetra">
+        <xs:restriction base="xs:string">
+            <xs:pattern value="[A-Z]{1}"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="TipoCP">
+        <xs:restriction base="xs:int">
+            <xs:pattern value="[1000-9999]{4}"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="TipoCiudad">
+        <xs:restriction base="xs:string">
+            <xs:pattern value="[A-Z]{1}+[a-z]*"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="TipoCate">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="Empresa"/>
+            <xs:enumeration value="Particular"/>
+            <xs:enumeration value="Agente_comercial"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="TipoZona">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="Malagueta"/>
+            <xs:enumeration value="Centro"/>
+            <xs:enumeration value="Parque del Oeste"/>
+            <xs:enumeration value="Ciudad Jardín"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+    <!--Elementos Compuestos-->
+    <xs:complexType name="ElementoFicha">
+        <xs:sequence>
+            <xs:element name="Nombre" type="TipoNombre"/>
+            <xs:element name="Apellido1" type="TipoNombre"/>
+            <xs:element name="Apellido2" type="TipoNombre"/>
+            <xs:element name="E-Mail" type="TipoEmail" minOccurs="0" maxOccurs="2"/>
+            <xs:element name="Dirección" type="ElementoDireccion" maxOccurs="3" minOccurs="0"/>
+        </xs:sequence>
+        <xs:attribute name="TipoCategoria" type="TipoCate"/>
+        <xs:attribute name="TipoZona" type="TipoZona"/>
+    </xs:complexType>
+    <xs:complexType name="ElementoDireccion">
+        <xs:sequence>
+            <xs:element name="Calle" type="TipoCalle"/>
+            <xs:choice minOccurs="0" maxOccurs="unbounded">
+                <xs:element name="Piso" type="TipoPiso"/>
+                <xs:element name="Letra" type="TipoLetra"/>
+            </xs:choice>
+            <xs:element name="CodigoPostal" type="TipoCP"/>
+            <xs:element name="Ciudad" type="TipoCiudad"/>
+            <xs:element name="Pais" type="TipoCiudad"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:element name="Fichas">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="Ficha" type="ElementoFicha"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+</xs:schema>

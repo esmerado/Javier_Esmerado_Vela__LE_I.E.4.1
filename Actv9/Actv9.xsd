@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+    <!--Elementos simples-->
+    <!--Datos-->
+    <xs:simpleType name="TipoCodigo">
+        <xs:restriction base="xs:string">
+            <xs:pattern value="[A-Z]{1}[0-9]{7}"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="TipoNombre">
+        <xs:restriction base="xs:string">
+            <xs:pattern value="([A-Z]{1}[a-z]*)"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="TipoFechaPedido">
+        <xs:restriction base="xs:date"/>
+    </xs:simpleType>
+    <xs:simpleType name="TipoObservacion">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="Urgente"/>
+            <xs:enumeration value="Incompleto"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="TipoPlazo">
+        <xs:restriction base="xs:int"/>
+    </xs:simpleType>
+
+    <!--Articulos-->
+    <xs:simpleType name="TipoCodArticulo">
+        <xs:restriction base="xs:string">
+            <xs:pattern value="[A-Z]{3}[-][0-3]{3}"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="TipoNumUnidades">
+        <xs:restriction base="xs:int">
+            <xs:pattern value="[0-9]*"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="TipoPrecio">
+        <xs:restriction base="xs:string">
+            <xs:pattern value="[0-9]*[€]"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="TipoObservaciones">
+        <xs:restriction base="xs:string"/>
+    </xs:simpleType>
+    <xs:simpleType name="TipoPago">
+        <xs:restriction base="xs:string">
+            <xs:pattern value="[0-9]+[€]"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <!--Elementos complejos-->
+    
+    <xs:complexType name="TipoPagoC">
+        <xs:sequence>
+            <xs:element name="Cantidad" type="TipoPago"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="TipoAlbaran">
+        <xs:sequence>
+            <xs:element name="CodigoPedido" type="TipoCodArticulo"/>
+            <xs:element name="NombreTrabajador" type="TipoNombre"/>
+            <xs:element name="FechaPedido" type="TipoFechaPedido"/>
+            <xs:element name="Observaciones" type="TipoObservacion"/>
+            <xs:element name="PlazoRevision" type="TipoPlazo"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="TipoArticulo">
+        <xs:sequence>
+            <xs:element name="Codigo" type="TipoCodigo"/>
+            <xs:element name="NumUnidades" type="TipoNumUnidades"/>
+            <xs:element name="PrecioUnidad" type="TipoPrecio"/>
+            <xs:element name="Observaciones" type="TipoObservaciones"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="TipoZonaGestion">
+        <xs:sequence>
+            <xs:element name="Pago" type="TipoPagoC"/>
+            <xs:element name="Albaran" type="TipoAlbaran"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="TipoZonaExpo">
+        <xs:sequence>
+            <xs:element name="Articulo" type="TipoArticulo"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="TipoSucursales">
+        <xs:sequence>
+            <xs:element name="ZonaGestion" type="TipoZonaGestion"/>
+            <xs:element name="ZonaExposicion" type="TipoZonaExpo"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:element name="Empresa">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="Sucursal" type="TipoSucursales"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+</xs:schema>

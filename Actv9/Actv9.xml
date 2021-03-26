@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Empresa xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="Actv9.xsd">
+    <Sucursal>
+        <ZonaGestion>
+            <Pago>
+                <Cantidad>200€</Cantidad>
+            </Pago>
+            <Albaran>
+                <CodigoPedido>ABC-123</CodigoPedido>
+                <NombreTrabajador>Javier</NombreTrabajador>
+                <FechaPedido>2020-02-10</FechaPedido>
+                <Observaciones>Incompleto</Observaciones>
+                <PlazoRevision>10</PlazoRevision>
+            </Albaran>
+        </ZonaGestion>
+        <ZonaExposicion>
+            <Articulo>
+                <Codigo>A123467</Codigo>
+                <NumUnidades>12</NumUnidades>
+                <PrecioUnidad>20€</PrecioUnidad>
+                <Observaciones>Esto es una observación de prueba</Observaciones>
+            </Articulo>
+        </ZonaExposicion>
+    </Sucursal>
+</Empresa>

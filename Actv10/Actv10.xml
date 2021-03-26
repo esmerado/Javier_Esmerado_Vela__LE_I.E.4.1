@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Empresa xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="Actv10.xsd">
+    <Alamcen>
+        <Asociacion>
+            <SedeFisica>
+                <AsociacionCriadores>
+                    <Criador>
+                        <CodigoCriador>A18-1-20-001</CodigoCriador>
+                        <NombreCompleto>Javier Esmerado Vela</NombreCompleto>
+                        <NumInicialAnillas>
+                            <Material>AC</Material>
+                            <Calibre>3.1</Calibre>
+                            <NumUnidades>20</NumUnidades>
+                            <PrecioUnidad>15€</PrecioUnidad>
+                            <FehcaMaximaRecepcion>2020-02-20</FehcaMaximaRecepcion>
+                        </NumInicialAnillas>
+                        <PrecioTotal>450</PrecioTotal>
+                    </Criador>
+                </AsociacionCriadores>
+            </SedeFisica>
+            <OficinaAdministracion>
+                <Secretario>
+                    <Pedido>
+                        <DatosGenerales>
+                            <CodigoPedido>E18-1-20-001</CodigoPedido>
+                            <DatosAsociacion>
+                                <Nombre>Javier</Nombre>
+                                <Telf>647333523</Telf>
+                                <DireccionEnvio>C/ Calle Imaginaria</DireccionEnvio>
+                            </DatosAsociacion>
+                            <Nombre>Javier</Nombre>
+                            <NIF>77822787X</NIF>
+                            <FechaPedido>2020-02-14</FechaPedido>
+                            <PrecioTotal>450</PrecioTotal>
+                            <FormaPago>Transferencia</FormaPago>
+                            <Observaciones>Esto es una observación de prueba</Observaciones>
+                        </DatosGenerales>
+                        <DatosEspecifico>
+                            <NumAnillasSolicitadas>30</NumAnillasSolicitadas>
+                        </DatosEspecifico>
+                    </Pedido>
+                </Secretario>
+            </OficinaAdministracion>
+        </Asociacion>
+    </Alamcen>
+</Empresa>

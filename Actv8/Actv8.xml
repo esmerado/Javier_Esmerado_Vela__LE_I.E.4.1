@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Prestamos xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="Actv8.xsd">
+    <Prestamo>
+        <Datos>
+            <ID>8400</ID>
+            <Nombre>Javier</Nombre>
+            <Apellidos>Esmerado Vela</Apellidos>
+            <Telf>647333523</Telf>
+            <Direccion>
+                <Tipo>Calle</Tipo>
+                <NombreCalle>C/ Don Alosno quijano</NombreCalle>
+                <Número>18</Número>
+                <CP>41930</CP>
+            </Direccion>
+        </Datos>
+        <Ejemplares>
+            <NumRegsitro>12345</NumRegsitro>
+            <Titulo>La Dama y el Vagabundi</Titulo>
+            <Autor>Pedro De La Piedra</Autor>
+        </Ejemplares>
+    </Prestamo>
+</Prestamos>

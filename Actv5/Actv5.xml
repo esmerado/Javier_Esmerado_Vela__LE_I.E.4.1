@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Biblioteca xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="Actv5.xsd">
+    <Titulo>
+        Titulo <Subtitulo>Prueba</Subtitulo>
+    </Titulo>
+    <Autor>
+        <Nombre>Javier</Nombre>
+        <Apellido>Esmerado</Apellido>
+    </Autor>
+    <Editorial>Editorial</Editorial>
+    <Año>2020-02-11</Año>
+</Biblioteca>

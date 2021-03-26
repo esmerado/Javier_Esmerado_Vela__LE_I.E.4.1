@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE motores SYSTEM "Actv3.dtd">
+<motores>
+    <piezas>
+        <otraspiezas>
+            <importantes>Manguito</importantes>
+            <secundarias>Engranaje</secundarias>
+        </otraspiezas>
+    </piezas>
+    <seccion>Lujo</seccion>
+    <empleado>
+        <responsable>Javier Esmerado</responsable>
+        <familiares>
+            <madre>Susana</madre>
+            <padre>Vivente</padre>
+            <hermano>Pablo</hermano>
+        </familiares>
+    </empleado>
+</motores>

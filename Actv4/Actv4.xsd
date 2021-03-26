@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+    <!--Elementos simples-->
+    <xs:simpleType name="TipoDNI">
+        <xs:restriction base="xs:string">
+            <xs:pattern value="[0-9]{8}[A-Z]{1}"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="TipoPasaporte">
+        <xs:restriction base="xs:string">
+            <xs:pattern value="[0-9A-Z]{9}"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="TipoPais">
+        <xs:restriction base="xs:string">
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="TipoNombre">
+        <xs:restriction base="xs:string">
+            <xs:pattern value="([A-z]{1}[a-z])*"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="TipoApellidos">
+        <xs:restriction base="xs:string">
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="TipoFecha">
+        <xs:restriction base="xs:date"/>
+    </xs:simpleType>
+    <xs:simpleType name="TipoCPostal">
+        <xs:restriction base="xs:int">
+            <xs:pattern value="[0-9]{5}"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="TipoTelf">
+        <xs:restriction base="xs:int">
+            <xs:pattern value="[0-9]{9}"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="TipoCorreo">
+        <xs:restriction base="xs:string">
+            <xs:pattern value="[^@]+@[^\.]+\..+"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="TipoDespacho">
+        <xs:restriction base="xs:int">
+            <xs:pattern value="[0-9]{1}"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="TipoAsig">
+        <xs:restriction base="xs:string">
+            <xs:pattern value="([A-Z]{1}[a-z])*"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="TipoNota">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="NP"/>
+            <xs:enumeration value="SS"/>
+            <xs:enumeration value="AP"/>
+            <xs:enumeration value="NT"/>
+            <xs:enumeration value="SB"/>
+            <xs:enumeration value="MH"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="TipoCodigo">
+        <xs:restriction base="xs:int">
+            <xs:pattern value="([0-9]*)"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="TipoNumCredito">
+        <xs:restriction base="xs:int">
+            <xs:pattern value="([0-9]*)"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="TipoCarrera">
+        <xs:restriction base="xs:string">
+            <xs:pattern value="([A-Z]{1}[a-z]*)"/>
+            <xs:maxLength value="10"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="TipoCur">
+        <xs:restriction base="xs:string">
+            <xs:pattern value="([0-6]{1}[º]{1}[A-Z]{3})"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="TipoCur2">
+        <xs:restriction base="xs:string">
+            <xs:pattern value="([A-Z]{1}[a-z]*)"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+    <!--Elemetos complejos-->
+    <xs:complexType name="TipoCountry">
+        <xs:choice>
+            <xs:element name="DNI" type="TipoDNI"/>
+            <xs:element name="Pasaporte" type="TipoPasaporte"/>
+        </xs:choice>
+        <xs:attribute name="Pais" type="TipoPais"/>
+    </xs:complexType>
+    <xs:complexType name="TipoEleccion">
+        <xs:choice>
+            <xs:element name="DPostal" type="TipoCPostal"/>
+            <xs:element name="Telefono" type="TipoTelf"/>
+            <xs:element name="Correo" type="TipoCorreo"/>
+        </xs:choice>
+    </xs:complexType>
+    <xs:complexType name="TipoAlumno">
+        <xs:sequence>
+            <xs:element name="Identificacion" type="TipoCountry"/>
+            <xs:element name="Nombre" type="TipoNombre"/>
+            <xs:element name="Apellidos" type="TipoApellidos"/>
+            <xs:element name="FechaNacimiento" type="TipoFecha"/>
+            <xs:element name="Opcional" type="TipoEleccion"/>
+            <xs:element name="Asignaturas" type="TipoAsignaturas"/>
+            <xs:element name="Nota" type="TipoNota"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="TipoProfesor">
+        <xs:sequence>
+            <xs:element name="Identificacion" type="TipoCountry"/>
+            <xs:element name="Nombre" type="TipoNombre"/>
+            <xs:element name="Apellidos" type="TipoApellidos"/>
+            <xs:element name="FechaNacimiento" type="TipoFecha"/>
+            <xs:element name="Opcional" type="TipoEleccion"/>
+            <xs:element name="Despacho" type="TipoDespacho"/>
+            <xs:element name="Asignaturas" type="TipoAsignaturas"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="TipoCurso">
+        <xs:choice>
+            <xs:element name="Curso" type="TipoCur"/>
+            <xs:element name="Optativa" type="TipoCur2"/>
+            <xs:element name="Libre" type="TipoCur2"/>
+        </xs:choice>
+    </xs:complexType>
+    <xs:complexType name="TipoAsignaturas">
+        <xs:sequence>
+            <xs:element name="Codigo" type="TipoCodigo"/>
+            <xs:element name="Creditos" type="TipoNumCredito"/>
+            <xs:element name="Curso" type="TipoCurso"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:element name="Universidad">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="Alumnos" type="TipoAlumno"/>
+                <xs:element name="Profesores" type="TipoProfesor"/>
+                <xs:element name="Asignaturas" type="TipoAsignaturas"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+</xs:schema>
+

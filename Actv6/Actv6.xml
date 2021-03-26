@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Fichas xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="Actv6.xsd">
+    <Ficha>
+        <Nombre>Javier</Nombre>
+        <Apellido1>Esmerado</Apellido1>
+        <Apellido2>Vela</Apellido2>
+        <E-Mail>esmerado@gmail.com</E-Mail>
+        <Dirección>
+            <Calle>Don Alonso Quijano</Calle>
+            <CodigoPostal>4193</CodigoPostal>
+            <Ciudad>Sevilla</Ciudad>
+            <Pais>España</Pais>
+        </Dirección>
+    </Ficha>
+</Fichas>

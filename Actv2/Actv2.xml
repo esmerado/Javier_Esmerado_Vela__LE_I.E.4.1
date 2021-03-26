@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mensaje SYSTEM "Actv2.dtd">
+<mensaje>
+    <email>
+        <cabecera>
+            <emisor>Javier</emisor>
+            <receptor>Javi</receptor>
+            <fecha>23/01/21</fecha>
+        </cabecera>
+        <texto>Esto es un carta de prueba</texto>
+    </email>
+</mensaje>

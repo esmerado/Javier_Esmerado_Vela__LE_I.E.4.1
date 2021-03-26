@@ -1,0 +1,187 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+    <!--Elementos simples-->
+    <!--Pedido-->
+    <xs:simpleType name="TipoCodigoPedido">
+        <xs:restriction base="xs:string">
+            <xs:pattern value="([A-Z]{1}+[0-9]{2}+[-]+[0-9]{1}+[0-9]{2}+[0-9]{3})"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="TipoNombre">
+        <xs:restriction base="xs:string">
+            <xs:pattern value="([A-Z]{1}+[a-z]*)"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="TipoTelf">
+        <xs:restriction base="xs:string">
+            <xs:pattern value="[0-9]{9}"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="TipoDireEnvio">
+        <xs:restriction base="xs:string"/>
+    </xs:simpleType>
+    <xs:simpleType name="TipoDireOficina">
+        <xs:restriction base="xs:string">
+            <xs:pattern value="[C/^]+[A-Z]{1}+[a-z]*"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="TipoNIF">
+        <xs:restriction base="xs:string">
+            <xs:pattern value="[0-9]{8}+[A-Z]{1}"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="TipoFechaPedido">
+        <xs:restriction base="xs:date"/>
+    </xs:simpleType>
+    <xs:simpleType name="TipoPrecio">
+        <xs:restriction base="xs:string">
+            <xs:pattern value="[0-9]*+[€]"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="TipoFormaPago">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="Saldo"/>
+            <xs:enumeration value="Transferencia"/>
+            <xs:enumeration value="Exento"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="TipoObservacion">
+        <xs:restriction base="xs:string"/>
+    </xs:simpleType>
+    <!--Datos criador-->
+    <xs:simpleType name="TipoCodigoCriador">
+        <xs:restriction base="xs:string">
+            <xs:pattern value="[A-Z]{1}+[0-9]{3}"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="TipoNombreCompleto">
+        <xs:restriction base="xs:string">
+            <xs:pattern value="([A-Z]{1}+[a-z]*)+([A-Z]{1}+[a-z]*)+([A-Z]{1}+[a-z]*)"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="TipoPrecioTotalAnillas">
+        <xs:restriction base="xs:string">
+            <xs:pattern value="[0-9]*+[€]"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <!--Anillas-->
+    <xs:simpleType name="TipoMaterialAnillas">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="AC"/>
+            <xs:enumeration value="AI"/>
+            <xs:enumeration value="DA"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="TipoCalibre">
+        <xs:restriction base="xs:integer">
+            <xs:pattern value="[0-9]*+[.]+[0-9]*"
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="TipoPrecioUnidad">
+        <xs:restriction base="xs:string">
+            <xs:pattern value="[0-9]*+[€]"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="TipoFechaMaxima">
+        <xs:restriction base="xs:date"/>
+    </xs:simpleType>
+    <xs:simpleType name="TipoNumUnidades">
+        <xs:restriction base="xs:int">
+            <xs:pattern value="[0-9]*"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+    <!--Elementos Complejos-->
+    <xs:complexType name="TipoCriador">
+        <xs:sequence>
+            <xs:element name="CodigoCriador" type="TipoCodigoCriador"/>
+            <xs:element name="NombreCompleto" type="TipoNombreCompleto"/>
+            <xs:element name="NumInicialAnillas" type="TipoNumInicialAnillas"/>
+            <xs:element name="PrecioTotal" type="TipoPrecioTotalAnillas"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="TipoASC">
+        <xs:sequence>
+            <xs:element name="Criador" type="TipoCriador"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="TipoSedeFisica">
+        <xs:sequence>
+            <xs:element name="AsociacionCriadores" type="TipoASC"/>
+        </xs:sequence>
+    </xs:complexType>
+
+
+    <xs:complexType name="TipoDatosAsociacion">
+        <xs:sequence>
+            <xs:element name="Nombre" type="TipoNombre"/>
+            <xs:element name="Telf" type="TipoTelf"/>
+            <xs:element name="DireccionEnvio" type="TipoDireEnvio"/>
+            <xs:choice minOccurs="0" maxOccurs="1">
+                <xs:element name="DireccionOficina" type="TipoDireOficina"/>
+            </xs:choice>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="TipoNumInicialAnillas">
+        <xs:sequence>
+            <xs:element name="Material" type="TipoMaterialAnillas"/>
+            <xs:element name="Calibre" type="TipoCalibre"/>
+            <xs:element name="NumUnidades" type="TipoNumUnidades"/>
+            <xs:element name="PrecioUnidad" type="TipoPrecioUnidad"/>
+            <xs:element name="FehcaMaximaRecepcion" type="TipoFechaMaxima"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="TipoDatosGenerales">
+        <xs:sequence>
+            <xs:element name="CodigoPedido" type="TipoCodigoPedido"/>
+            <xs:element name="DatosAsociacion" type="TipoDatosAsociacion"/>
+            <xs:element name="Nombre" type="TipoNombre"/>
+            <xs:element name="NIF" type="TipoNIF"/>
+            <xs:element name="FechaPedido" type="TipoFechaPedido"/>
+            <xs:element name="PrecioTotal" type="TipoPrecio"/>
+            <xs:element name="FormaPago" type="TipoFormaPago"/>
+            <xs:element name="Observaciones" type="TipoObservacion"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="TipoDatoEspecifico">
+        <xs:sequence>
+            <xs:element name="NumAnillasSolicitadas" type="TipoNumUnidades"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="TipoPedido">
+        <xs:sequence>
+            <xs:element name="DatosGenerales" type="TipoDatosGenerales"/>
+            <xs:element name="DatosEspecifico" type="TipoDatoEspecifico"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="TipoSecretario">
+        <xs:sequence>
+            <xs:element name="Pedido" type="TipoPedido"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="TipoOA">
+        <xs:sequence>
+            <xs:element name="Secretario" type="TipoSecretario"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="TipoAsociacion">
+        <xs:sequence>
+            <xs:element name="SedeFisica" type="TipoSedeFisica"/>
+            <xs:element name="OficinaAdministracion" type="TipoOA"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="TipoAlamcen">
+        <xs:sequence>
+            <xs:element name="Asociacion" type="TipoAsociacion"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:element name="Empresa">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="Alamcen" type="TipoAlamcen"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+</xs:schema>

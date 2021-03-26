@@ -1,0 +1,52 @@
+<xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+    <xs:element name="Libro">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element type="xs:string" name="Titulo"/>
+                <xs:element name="Contenido">
+                    <xs:complexType>
+                        <xs:choice maxOccurs="unbounded" minOccurs="0">
+                            <xs:element name="Capitulo" maxOccurs="unbounded" minOccurs="0">
+                                <xs:complexType mixed="true">
+                                    <xs:sequence>
+                                        <xs:element type="xs:string" name="Tema"/>
+                                        <xs:element name="Seccion" maxOccurs="unbounded" minOccurs="0">
+                                            <xs:complexType>
+                                                <xs:simpleContent>
+                                                    <xs:extension base="xs:string">
+                                                        <xs:attribute type="xs:byte" name="apartados" use="optional"/>
+                                                        <xs:attribute type="xs:string" name="dificil" use="optional"/>
+                                                    </xs:extension>
+                                                </xs:simpleContent>
+                                            </xs:complexType>
+                                        </xs:element>
+                                    </xs:sequence>
+                                    <xs:attribute type="xs:string" name="materia" use="optional"/>
+                                </xs:complexType>
+                            </xs:element>
+                            <xs:element name="Separacion">
+                                <xs:complexType mixed="true">
+                                    <xs:sequence>
+                                        <xs:element type="xs:string" name="Tema" minOccurs="0"/>
+                                        <xs:element name="Seccion" maxOccurs="unbounded" minOccurs="0">
+                                            <xs:complexType>
+                                                <xs:simpleContent>
+                                                    <xs:extension base="xs:string">
+                                                        <xs:attribute type="xs:byte" name="apartados" use="optional"/>
+                                                        <xs:attribute type="xs:string" name="dificil" use="optional"/>
+                                                    </xs:extension>
+                                                </xs:simpleContent>
+                                            </xs:complexType>
+                                        </xs:element>
+                                    </xs:sequence>
+                                    <xs:attribute type="xs:string" name="materia" use="optional"/>
+                                </xs:complexType>
+                            </xs:element>
+                        </xs:choice>
+                    </xs:complexType>
+                </xs:element>
+                <xs:element type="xs:string" name="Copyright"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+</xs:schema>

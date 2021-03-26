@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Universidad xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="Actv4.xsd">
+    <Alumnos>
+        <Identificacion>
+            <DNI>77822787X</DNI>
+        </Identificacion>
+        <Nombre>Javier</Nombre>
+        <Apellidos>Esmerado Vela</Apellidos>
+        <FechaNacimiento>2002-03-22</FechaNacimiento>
+        <Opcional>
+            <Correo>esmerado@gmail.com</Correo>
+        </Opcional>
+        <Asignaturas>
+            <Codigo>4</Codigo>
+            <Creditos>20</Creditos>
+            <Curso>
+                <Optativa>Tecnologia</Optativa>
+            </Curso>
+        </Asignaturas>
+        <Nota>NP</Nota>
+    </Alumnos>
+    <Profesores>
+        <Identificacion Pais="España">
+            <Pasaporte>JKDSF9823</Pasaporte>
+        </Identificacion>
+        <Nombre>Profesor</Nombre>
+        <Apellidos>De Mates</Apellidos>
+        <FechaNacimiento>1980-05-08</FechaNacimiento>
+        <Opcional>
+            <Telefono>647333523</Telefono>
+        </Opcional>
+        <Despacho>1</Despacho>
+        <Asignaturas>
+            <Codigo>12</Codigo>
+            <Creditos>230</Creditos>
+            <Curso>
+                <Curso>1ºDAM</Curso>
+            </Curso>
+        </Asignaturas>
+    </Profesores>
+    <Asignaturas>
+        <Codigo>12</Codigo>
+        <Creditos>240</Creditos>
+        <Curso>
+            <Curso>2ºDAM</Curso>
+        </Curso>
+    </Asignaturas>
+</Universidad>

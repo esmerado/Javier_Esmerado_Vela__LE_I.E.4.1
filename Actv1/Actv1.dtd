@@ -1,0 +1,18 @@
+<!ELEMENT cd (cancion*, songs*)>
+<!ELEMENT songs (song*)>
+<!ATTLIST cd titulo CDATA #REQUIRED>
+<!ELEMENT song (cancion)>
+<!ELEMENT cancion (titulo, compositores, productores, sello, artista, fecha*)>
+<!ELEMENT titulo (#PCDATA)>
+<!ELEMENT compositores (compositor)>
+<!ELEMENT compositor (nombres+, apellidos+)>
+<!ELEMENT nombres (#PCDATA)>
+<!ELEMENT apellidos (#PCDATA)>
+<!ELEMENT productores (productor)>
+<!ELEMENT productor (nombres+, apellidos+)>
+<!ELEMENT fecha EMPTY>
+<!ATTLIST fecha dia CDATA #REQUIRED>
+<!ATTLIST fecha anio CDATA #REQUIRED>
+<!ATTLIST fecha mes CDATA #REQUIRED>
+<!ELEMENT sello (#PCDATA)>
+<!ELEMENT artista (#PCDATA)>

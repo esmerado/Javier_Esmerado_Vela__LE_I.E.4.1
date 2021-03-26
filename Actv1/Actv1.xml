@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE cd SYSTEM "Actv1.dtd">
+<cd titulo="mi cd">
+<songs>
+<song>
+<cancion>
+  <titulo>Give it 2 me</titulo>
+  <compositores>
+    <compositor>
+      <nombres>Pharrel</nombres>
+      <apellidos>Williams</apellidos>
+    </compositor>
+  </compositores>
+  <productores>
+    <productor>
+      <nombres>Pharrel</nombres>
+      <apellidos>Williams</apellidos>
+    </productor>
+  </productores>
+  <sello>Warner Bros Record</sello>
+  <artista>Madonna</artista>
+  <fecha dia="25" anio="2002" mes="Noviembre"/>
+</cancion>
+</song>
+</songs>
+</cd>

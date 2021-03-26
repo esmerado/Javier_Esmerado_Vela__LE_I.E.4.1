@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+    <!--Elementos simples-->
+    <xs:simpleType name="TipoNombre">
+        <xs:restriction base="xs:string">
+            <xs:pattern value="([A-Z]{1}+[a-z])*"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="TipoApellidos">
+        <xs:restriction base="xs:string">
+            <xs:pattern value="(([A-Z]{1}+[a-z])*) + (([A-Z]{1}+[a-z])*)"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="TipoID">
+        <xs:restriction base="xs:int">
+            <xs:pattern value="[0-9]{4}"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="TipoTelf">
+        <xs:restriction base="xs:int">
+            <xs:pattern value="[0-9]{9}"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="TipoCalle">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="Calle"/>
+            <xs:enumeration value="Avenida"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="TipoNumCalle">
+        <xs:restriction base="xs:int">
+            <xs:pattern value="[0-9]*"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="TipoNombreCalle">
+        <xs:restriction base="xs:string">
+            <xs:pattern value="[C/^]+[A-Z]{1}+[a-z]*"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="TipoPisoLetra">
+        <xs:restriction base="xs:int">
+            <xs:pattern value="([0-9]{2}) + ([A-Z]{1})"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="TipoCP">
+        <xs:restriction base="xs:int">
+            <xs:pattern value="[0-9]{5}"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="TipoLocalidadProv">
+        <xs:restriction base="xs:string">
+            <xs:pattern value="([A-Z]{1}[a-z]*) + ([A-Z]{1}[a-z]*)"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="TipoFechaPres">
+        <xs:restriction base="xs:date"/>
+    </xs:simpleType>
+    <xs:simpleType name="TipoFechaDev">
+        <xs:restriction base="xs:date"/>
+    </xs:simpleType>
+    <xs:simpleType name="TipoNumResgistro">
+        <xs:restriction base="xs:int">
+            <xs:pattern value="[0-9]{5}"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="TipoTitLibro">
+        <xs:restriction base="xs:string"/>
+    </xs:simpleType>
+    <xs:simpleType name="TipoAutor">
+        <xs:restriction base="xs:string"/>
+    </xs:simpleType>
+    <xs:simpleType name="TipoIden">
+        <xs:restriction base="xs:int">
+            <xs:pattern value="[0-9]{2}"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <!--Elementos complejos-->
+    <xs:complexType name="TipoBibliotecario">
+        <xs:sequence>
+            <xs:element name="Nombre" type="TipoNombre"/>
+            <xs:element name="Apellidos" type="TipoApellidos"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="TipoFechasPrestamos">
+        <xs:sequence>
+            <xs:element name="FechaPrestamo" type="TipoFechaPres"/>
+            <xs:element name="FechaDevolucion" type="TipoFechaDev"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="TipoDireccion">
+        <xs:sequence>
+            <xs:element name="Tipo" type="TipoCalle"/>
+            <xs:element name="NombreCalle" type="TipoNombreCalle"/>
+            <xs:element name="Número" type="TipoNumCalle"/>
+            <xs:element name="CP" type="TipoCP"/>
+            <xs:choice minOccurs="0" maxOccurs="unbounded">
+                <xs:element name="PisoyLetra" type="TipoPisoLetra"/>
+                <xs:element name="LocalidadyProvincia" type="TipoLocalidadProv"/>
+            </xs:choice>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="TipoDatosLector">
+        <xs:sequence>
+            <xs:element name="ID" type="TipoID"/>
+            <xs:element name="Nombre" type="TipoNombre"/>
+            <xs:element name="Apellidos" type="TipoApellidos"/>
+            <xs:element name="Telf" type="TipoTelf"/>
+            <xs:element name="Direccion" type="TipoDireccion"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="TipoEjemplares">
+        <xs:sequence>
+            <xs:element name="NumRegsitro" type="TipoNumResgistro"/>
+            <xs:element name="Titulo" type="TipoTitLibro"/>
+            <xs:element name="Autor" type="TipoAutor"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="TipoPrestamo">
+        <xs:sequence>
+            <xs:element name="Datos" type="TipoDatosLector"/>
+            <xs:element name="Ejemplares" type="TipoEjemplares" minOccurs="1" maxOccurs="3"/>
+        </xs:sequence>
+        <xs:attribute name="Identificador" type="TipoIden"/>
+    </xs:complexType>
+    <xs:element name="Prestamos">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="Prestamo" type="TipoPrestamo"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+</xs:schema>

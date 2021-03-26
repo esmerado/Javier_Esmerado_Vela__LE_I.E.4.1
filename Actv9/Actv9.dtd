@@ -1,0 +1,18 @@
+<!ELEMENT empresa (sucursal+)>
+<!ELEMENT sucursal (zonaGestion+, zonaExposicion+)>
+<!ELEMENT zonaGestion (pago+, albaran+)>
+<!ELEMENT zonaExposicion (articulos+)>
+<!ELEMENT pago (#PCDATA)>
+<!ELEMENT albaran (codigoPedido+, nombre+, fecha+, observacion+, plazoRevision+)>
+<!ELEMENT articulos (codigo+, numArticulos+, precioUnidad+, observaciones+)>
+<!ELEMENT codigoPedido (#PCDATA)>
+<!ELEMENT nombre (#PCDATA)>
+<!ELEMENT fecha (#PCDATA)>
+<!ELEMENT observacion (urgente | incompleto)>
+<!ELEMENT urgente EMPTY>
+<!ELEMENT incompleto EMPTY>
+<!ELEMENT plazoRevision (#PCDATA)>
+<!ELEMENT codigo (#PCDATA)>
+<!ELEMENT numArticulos (#PCDATA)>
+<!ELEMENT precioUnidad (#PCDATA)>
+<!ELEMENT observaciones (#PCDATA)>

@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+<!--Elementos simples-->
+    <xs:simpleType name="TipoLibro">
+        <xs:restriction base="xs:string">
+            <xs:pattern value="([A-Z]{1}[a-z])*"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="TipoNombre">
+        <xs:restriction base="xs:string"/>
+    </xs:simpleType>
+    <xs:simpleType name="TipoTitulo">
+        <xs:restriction base="xs:string"/>
+    </xs:simpleType>
+    <xs:simpleType name="TipoAutor">
+        <xs:restriction base="xs:string">
+            <xs:pattern value="([A-Z]{1}[a-z])*"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="TipoEditorial">
+        <xs:restriction base="xs:string"/>
+    </xs:simpleType>
+    <xs:simpleType name="TipoFecha">
+        <xs:restriction base="xs:date"/>
+    </xs:simpleType>
+    <xs:simpleType name="TipoALibro">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="Actas"/>
+            <xs:enumeration value="Novela"/>
+            <xs:enumeration value="Ensayo"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+<!--Elementos complejos-->
+    <xs:complexType name="TipoLibroC">
+        <xs:sequence>
+            <xs:element name="Titulo" type="TipoTitulo"/>
+            <xs:element name="Autor" type="TipoAutor"/>
+            <xs:choice minOccurs="0" maxOccurs="unbounded">
+                <xs:element name="Editorial" type="TipoEditorial"/>
+                <xs:element name="Año" type="TipoFecha"/>
+            </xs:choice>
+        </xs:sequence>
+        <xs:attribute name="Tipo" type="TipoALibro" use="required"/>
+    </xs:complexType>
+    <xs:complexType name="TipoTituloC" mixed="true">
+        <xs:choice minOccurs="0" maxOccurs="unbounded">
+            <xs:element name="Subtitulo" type="TipoTitulo"/>
+        </xs:choice>
+    </xs:complexType>
+    <xs:complexType name="TipoAutorC">
+        <xs:sequence>
+            <xs:choice minOccurs="0" maxOccurs="unbounded">
+                <xs:element name="Nombre" type="TipoNombre"/>
+            </xs:choice>
+            <xs:element name="Apellido" type="TipoNombre"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:element name="Biblioteca">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="Titulo" type="TipoTituloC"/>
+                <xs:element name="Autor" type="TipoAutorC"/>
+                <xs:choice minOccurs="0" maxOccurs="unbounded">
+                    <xs:element name="Editorial" type="TipoEditorial"/>
+                    <xs:element name="Año" type="TipoFecha"/>
+                </xs:choice>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+</xs:schema>

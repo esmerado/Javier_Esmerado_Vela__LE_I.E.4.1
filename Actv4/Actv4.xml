@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE universidad SYSTEM "Actv4.dtd">
+<universidad>
+    <alumnos>
+        <DNI>77822787X</DNI>
+        <pasaporte>
+            <pais>España</pais>
+        </pasaporte>
+        <nombre>Javier</nombre>
+        <apellidos>Esmerado Vela</apellidos>
+        <fechanacimiento>22/03/2002</fechanacimiento>
+        <direccionpostal>Don Alonso Quijano</direccionpostal>
+        <telefonos>647333523</telefonos>
+        <correo>esmerado.vela.javier@gmail.com</correo>
+        <asignaturasalumnos materia="MATES" notas="SB"/>
+    </alumnos>
+    <profesores>
+        <DNI>12345678X</DNI>
+        <pasaporte>
+            <pais>España</pais>
+        </pasaporte>
+        <nombre>Pablo</nombre>
+        <apellido>Esmerado</apellido>
+        <fechanacimiento>22/03/2002</fechanacimiento>
+        <direccionpostal>Don Alosno Quijano </direccionpostal>
+        <telefonos>647333523</telefonos>
+        <correo>esme@gmail.com</correo>
+        <despacho>1</despacho>
+        <tutorias>1</tutorias>
+        <asignaturasprofesor>Programación</asignaturasprofesor>
+    </profesores>
+    <asignaturas>
+        <codigo>12345</codigo>
+        <numerocreditos>5</numerocreditos>
+        <carrera>Informátic</carrera>
+        <curso>Desarrollo Web</curso>
+        <caracteristicas tiempo="optativa"/>
+    </asignaturas>
+</universidad>

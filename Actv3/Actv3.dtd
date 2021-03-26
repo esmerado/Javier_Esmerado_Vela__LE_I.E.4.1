@@ -1,0 +1,12 @@
+<!ELEMENT motores (piezas*, seccion, empleado*)>
+<!ELEMENT piezas (otraspiezas*)>
+<!ELEMENT otraspiezas (importantes*, secundarias*)>
+<!ELEMENT importantes (#PCDATA)>
+<!ELEMENT secundarias (#PCDATA)>
+<!ELEMENT seccion (#PCDATA)>
+<!ELEMENT empleado (responsable, familiares*)>
+<!ELEMENT responsable (#PCDATA)>
+<!ELEMENT familiares (madre, padre, hermano*)>
+<!ELEMENT madre (#PCDATA)>
+<!ELEMENT padre (#PCDATA)>
+<!ELEMENT hermano (#PCDATA)>
